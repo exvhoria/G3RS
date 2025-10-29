@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G3RS - Nature Environment Safety</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js for mobile menu interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <style>
+        /* Using Tailwind's recommended 'Inter' font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Simple smooth scroll for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    
+    <!-- Configuration for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-green': '#22543d', // A deep, natural green
+                        'brand-light-green': '#48bb78', // A brighter accent green
+                        'brand-gray': '#f7fafc', // Light gray background
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50" x-data="{ open: false }">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-3xl font-bold text-brand-green">
+                G3RS
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button @click="open = !open" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path :class="{'hidden': open, 'inline-flex': !open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        <path :class="{'hidden': !open, 'inline-flex': open }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#home" class="text-gray-600 hover:text-brand-light-green transition duration-300">Home</a>
+                <a href="#about" class="text-gray-600 hover:text-brand-light-green transition duration-300">About Us</a>
+                <a href="#product" class="text-gray-600 hover:text-brand-light-green transition duration-300">Our Product</a>
+                <a href="#team" class="text-gray-600 hover:text-brand-light-green transition duration-300">Our Team</a>
+                <a href="#contact" class="bg-brand-green text-white px-4 py-2 rounded-full hover:bg-green-800 transition duration-300">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div :class="{'block': open, 'hidden': !open}" class="md:hidden bg-white shadow-lg">
+            <a href="#home" @click="open = false" class="block px-6 py-3 text-gray-600 hover:bg-brand-gray">Home</a>
+            <a href="#about" @click="open = false" class="block px-6 py-3 text-gray-600 hover:bg-brand-gray">About Us</a>
+            <a href="#product" @click="open = false" class="block px-6 py-3 text-gray-600 hover:bg-brand-gray">Our Product</a>
+            <a href="#team" @click="open = false" class="block px-6 py-3 text-gray-600 hover:bg-brand-gray">Our Team</a>
+            <a href="#contact" @click="open = false" class="block px-6 py-3 text-white bg-brand-green hover:bg-green-800">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative bg-brand-green text-white" style="background-image: url('https://placehold.co/1920x1080/22543d/ffffff?text=G3RS&font=inter'); background-size: cover; background-position: center; background-blend-mode: overlay; background-color: rgba(34, 84, 61, 0.7);">
+            <div class="container mx-auto px-6 py-32 md:py-48 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">Protecting Our Planet, One Drop at a Time.</h1>
+                <p class="text-lg md:text-xl text-green-100 mb-8">We are G3RS, a creative team dedicated to nature environment safety through powerful eco-enzymes.</p>
+                <a href="#product" class="bg-white text-brand-green font-bold px-8 py-3 rounded-full text-lg hover:bg-gray-200 transition duration-300">Discover Our Eco-Enzyme</a>
+            </div>
+            <!-- Placeholder for a real nature image -->
+            <img src="https://placehold.co/1920x1080/22543d/ffffff?text=G3RS" alt="Nature background" class="hidden" onerror="this.style.display='none'">
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 bg-brand-gray">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">About G3RS</h2>
+                <div class="max-w-3xl mx-auto">
+                    <p class="text-gray-600 text-lg mb-4">
+                        We are G3RS, a passionate and creative group of IX.1 students. Our mission is to make a tangible difference in environmental safety. We believe that small changes can lead to big impacts, which is why we've focused our efforts on developing high-quality, effective eco-enzymes.
+                    </p>
+                    <p class="text-gray-600 text-lg">
+                        Our creativity drives us to find innovative solutions for a cleaner, greener future. We're not just a team; we're a movement dedicated to protecting the natural world for generations to come.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Product Section -->
+        <section id="product" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <!-- Product Image Placeholder -->
+                    <div class="md:w-1/2">
+                        <img src="https://placehold.co/600x400/48bb78/ffffff?text=Our+Eco-Enzyme&font=inter" alt="Bottle of G3RS Eco-Enzyme" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                    </div>
+                    <!-- Product Description -->
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4">The G3RS Eco-Enzyme</h2>
+                        <p class="text-gray-600 text-lg mb-4">
+                            Our signature product is a powerful, all-natural eco-enzyme, meticulously crafted from fermented organic waste. This isn't just a cleaning product; it's a versatile solution for a healthier home and planet.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2 mb-6">
+                            <li>Breaks down grease, grime, and odors effectively.</li>
+                            <li>Completely non-toxic and safe for families and pets.</li>
+                            <li>Reduces chemical pollution in our waterways.</li>
+                            <li>Enriches soil as a natural fertilizer.</li>
+                            <li>Made by recycling kitchen scraps, reducing landfill waste.</li>
+                        </ul>
+                        <p class="text-lg font-semibold text-brand-green">
+                            Join us in making a very good choice for the environment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team Section -->
+        <section id="team" class="py-20 bg-brand-gray">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Our Creative Team</h2>
+                <p class="text-gray-600 text-lg mb-12">Meet the IX.1 students behind G3RS.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                    <!-- Team Member Card -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://placehold.co/200x200/e2e8f0/333333?text=HHN&font=inter" alt="Hafidz Husein N." class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-light-green">
+                        <h3 class="text-xl font-semibold text-gray-800">Hafidz Husein N.</h3>
+                        <p class="text-gray-500">Team Member</p>
+                    </div>
+                    <!-- Team Member Card -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://placehold.co/200x200/e2e8f0/333333?text=NK&font=inter" alt="Nabila K." class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-light-green">
+                        <h3 class="text-xl font-semibold text-gray-800">Nabila K.</h3>
+                        <p class="text-gray-500">Team Member</p>
+                    </div>
+                    <!-- Team Member Card -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://placehold.co/200x200/e2e8f0/333333?text=KAZ&font=inter" alt="Khairani A.Z" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-light-green">
+                        <h3 class="text-xl font-semibold text-gray-800">Khairani A.Z</h3>
+                        <p class="text-gray-500">Team Member</p>
+                    </div>
+                    <!-- Team Member Card -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://placehold.co/200x200/e2e8f0/333333?text=AMU&font=inter" alt="Angel Marsita U." class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-light-green">
+                        <h3 class="text-xl font-semibold text-gray-800">Angel Marsita U.</h3>
+                        <p class="text-gray-500">Team Member</p>
+                    </div>
+                    <!-- Team Member Card -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://placehold.co/200x200/e2e8f0/333333?text=SHAA&font=inter" alt="Salim Husein A.A" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-light-green">
+                        <h3 class="text-xl font-semibold text-gray-800">Salim Husein A.A</h3>
+                        <p class="text-gray-500">Team Member</s_p>
+                    </div>
+                    <!-- Team Member Card -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://placehold.co/200x200/e2e8f0/333333?text=GAG&font=inter" alt="Geovanee A.G" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-brand-light-green">
+                        <h3 class="text-xl font-semibold text-gray-800">Geovanee A.G</h3>
+                        <p class="text-gray-500">Team Member</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-brand-green text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
+                <p class="text-lg text-green-100 mb-8">Have questions about our eco-enzyme or want to collaborate? Reach out!</p>
+                <a href="mailto:info@g3rs.example.com" class="bg-white text-brand-green font-bold px-8 py-3 rounded-full text-lg hover:bg-gray-200 transition duration-300">
+                    Email Us
+                </a>
+                <p class="text-sm text-green-200 mt-4">(info@g3rs.example.com)</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 G3RS. All rights reserved.</p>
+            <p class="text-sm">A Creative Project by the Students of IX.1</p>
+        </div>
+    </footer>
+
+</body>
+</html>
